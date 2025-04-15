@@ -1,0 +1,13 @@
+@use '../../../libs/design-system/src/styles/design-system';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
