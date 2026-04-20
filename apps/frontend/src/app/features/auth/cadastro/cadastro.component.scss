@@ -1,0 +1,29 @@
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--ds-espaco-6);
+
+  &__card {
+    width: 100%;
+    max-width: 440px;
+  }
+
+  &__corpo {
+    padding: var(--ds-espaco-10);
+  }
+
+  &__titulo {
+    text-align: center;
+  }
+
+  &__formulario {
+    margin-top: var(--ds-espaco-8);
+  }
+
+  &__acao-secundaria {
+    margin: var(--ds-espaco-5) 0 0;
+    text-align: center;
+  }
+}

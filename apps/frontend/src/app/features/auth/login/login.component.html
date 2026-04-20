@@ -1,0 +1,86 @@
+<div class="login auth">
+  <div class="ds-card auth__card">
+    <div class="ds-card__corpo auth__corpo">
+      <h1 class="ds-titulo-3 auth__titulo">Trilha de Conhecimento Contínuo</h1>
+      <p class="ds-texto ds-texto-centro">Entre para continuar seus estudos</p>
+
+      <form
+        class="ds-stack auth__formulario"
+        [formGroup]="formulario"
+        (ngSubmit)="entrar()"
+        novalidate
+      >
+        <label
+          class="ds-campo"
+          [class.ds-campo--erro]="
+            formulario.get('email')?.invalid && formulario.get('email')?.touched
+          "
+          for="email"
+        >
+          <span class="ds-campo__rotulo">E-mail</span>
+          <input
+            class="ds-campo__controle"
+            id="email"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            placeholder="seu@email.com"
+          />
+          @if (
+            formulario.get('email')?.invalid && formulario.get('email')?.touched
+          ) {
+            <span class="ds-campo__erro" role="alert">
+              Informe um e-mail válido.
+            </span>
+          }
+        </label>
+
+        <label
+          class="ds-campo"
+          [class.ds-campo--erro]="
+            formulario.get('senha')?.invalid && formulario.get('senha')?.touched
+          "
+          for="senha"
+        >
+          <span class="ds-campo__rotulo">Senha</span>
+          <input
+            class="ds-campo__controle"
+            id="senha"
+            type="password"
+            formControlName="senha"
+            autocomplete="current-password"
+            placeholder="Sua senha"
+          />
+          @if (
+            formulario.get('senha')?.invalid && formulario.get('senha')?.touched
+          ) {
+            <span class="ds-campo__erro" role="alert"> Informe a senha. </span>
+          }
+        </label>
+
+        @if (erro()) {
+          <div class="ds-alerta ds-alerta--erro" role="alert">
+            {{ erro() }}
+          </div>
+        }
+
+        <button
+          class="ds-botao ds-botao--primario"
+          type="submit"
+          [disabled]="carregando()"
+        >
+          {{ carregando() ? 'Entrando...' : 'Entrar' }}
+        </button>
+      </form>
+
+      <p class="auth__acao-secundaria">
+        Ainda não tem conta?
+        <a class="ds-link" routerLink="/cadastro">Criar acesso</a>
+      </p>
+
+      <p class="auth__acao-secundaria auth__acao-secundaria--compacta">
+        <a class="ds-link" routerLink="/recuperar-senha">Esqueci minha senha</a>
+      </p>
+    </div>
+  </div>
+</div>
