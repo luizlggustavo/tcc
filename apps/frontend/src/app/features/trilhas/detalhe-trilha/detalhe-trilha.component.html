@@ -1,0 +1,94 @@
+<section class="detalhe-trilha ds-stack">
+  <a class="detalhe-trilha__voltar ds-link" routerLink="/app/trilhas">
+    Voltar para trilhas
+  </a>
+
+  @if (carregando()) {
+    <p class="detalhe-trilha__estado ds-texto" role="status">Carregando trilha...</p>
+  } @else if (erro()) {
+    <p class="detalhe-trilha__erro ds-alerta ds-alerta--erro" role="alert">{{ erro() }}</p>
+  } @else if (trilha(); as dados) {
+    <header class="detalhe-trilha__cabecalho">
+      <span class="detalhe-trilha__categoria ds-chip ds-chip--sucesso">{{ dados.categoria.nome }}</span>
+      <h1 class="detalhe-trilha__titulo ds-titulo-3">{{ dados.titulo }}</h1>
+      <p class="detalhe-trilha__descricao ds-texto">{{ dados.descricao }}</p>
+      <div class="detalhe-trilha__progresso">
+        <div class="detalhe-trilha__progresso-cabecalho">
+          <strong>Progresso da trilha</strong>
+          <span>
+            {{ dados.progresso.percentualConclusao }}% concluído
+          </span>
+        </div>
+        <div
+          class="detalhe-trilha__barra ds-progresso__barra"
+          aria-label="Progresso da trilha"
+          role="progressbar"
+          [attr.aria-valuenow]="dados.progresso.percentualConclusao"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <span
+            class="detalhe-trilha__barra-preenchimento ds-progresso__valor"
+            [style.width.%]="dados.progresso.percentualConclusao"
+          ></span>
+        </div>
+        <small class="detalhe-trilha__progresso-texto">
+          {{ dados.progresso.licoesConcluidas }} de
+          {{ dados.progresso.totalLicoes }} lições concluídas
+        </small>
+      </div>
+    </header>
+
+    @if (dados.modulos.length === 0) {
+      <p class="detalhe-trilha__estado">
+        Nenhum módulo publicado nessa trilha.
+      </p>
+    } @else {
+      <div class="detalhe-trilha__modulos ds-stack">
+        @for (modulo of dados.modulos; track modulo.id) {
+          <section class="detalhe-trilha__modulo ds-card">
+            <h2 class="detalhe-trilha__subtitulo ds-card__titulo">{{ modulo.titulo }}</h2>
+
+            @if (modulo.licoes.length === 0) {
+              <p class="detalhe-trilha__estado">
+                Nenhuma lição publicada nesse módulo.
+              </p>
+            } @else {
+              <ol class="detalhe-trilha__licoes ds-lista">
+                @for (licao of modulo.licoes; track licao.id) {
+                  <li class="detalhe-trilha__licao">
+                    <a
+                      class="detalhe-trilha__link-licao ds-lista__item"
+                      [routerLink]="[
+                        '/app/trilhas',
+                        dados.id,
+                        'licoes',
+                        licao.id
+                      ]"
+                    >
+                      <span class="detalhe-trilha__ordem ds-avatar" aria-hidden="true">
+                        {{ licao.ordem }}
+                      </span>
+                      <span class="detalhe-trilha__texto-licao">
+                        <strong>{{ licao.titulo }}</strong>
+                        <small>{{ licao.descricao }}</small>
+                      </span>
+                      <span
+                        class="detalhe-trilha__status"
+                        [class.detalhe-trilha__status--concluida]="
+                          licao.concluida
+                        "
+                      >
+                        {{ licao.concluida ? 'Concluída' : 'Pendente' }}
+                      </span>
+                    </a>
+                  </li>
+                }
+              </ol>
+            }
+          </section>
+        }
+      </div>
+    }
+  }
+</section>

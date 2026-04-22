@@ -1,0 +1,44 @@
+<section class="trilhas">
+  <div class="trilhas__cabecalho">
+    <div>
+      <h1 class="trilhas__titulo ds-titulo-3">Trilhas de estudo</h1>
+      <p class="trilhas__descricao ds-texto">Escolha uma trilha publicada para estudar.</p>
+    </div>
+
+    @if (categorias().length > 0) {
+      <label class="trilhas__filtro ds-campo">
+        <span class="trilhas__rotulo ds-campo__rotulo">Categoria</span>
+        <select
+          class="trilhas__select ds-campo__controle"
+          [ngModel]="categoriaSelecionada()"
+          (ngModelChange)="selecionarCategoria($event)"
+        >
+          <option value="">Todas</option>
+          @for (categoria of categorias(); track categoria.id) {
+            <option [value]="categoria.id">{{ categoria.nome }}</option>
+          }
+        </select>
+      </label>
+    }
+  </div>
+
+  @if (carregando()) {
+    <p class="trilhas__estado ds-texto" role="status">Carregando trilhas...</p>
+  } @else if (erro()) {
+    <p class="trilhas__erro ds-alerta ds-alerta--erro" role="alert">{{ erro() }}</p>
+  } @else if (trilhas().length === 0) {
+    <p class="trilhas__estado ds-texto">Nenhuma trilha publicada no momento.</p>
+  } @else if (trilhasFiltradas().length === 0) {
+    <p class="trilhas__estado ds-texto">Nenhuma trilha encontrada nessa categoria.</p>
+  } @else {
+    <div class="trilhas__grade">
+      @for (trilha of trilhasFiltradas(); track trilha.id) {
+        <a class="trilhas__card ds-card ds-card--interativo" [routerLink]="['/app/trilhas', trilha.id]">
+          <span class="trilhas__categoria ds-chip ds-chip--sucesso">{{ trilha.categoria.nome }}</span>
+          <h2 class="trilhas__subtitulo">{{ trilha.titulo }}</h2>
+          <p class="trilhas__resumo">{{ trilha.descricaoResumo }}</p>
+        </a>
+      }
+    </div>
+  }
+</section>
