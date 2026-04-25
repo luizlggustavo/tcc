@@ -1,0 +1,101 @@
+<section class="missoes ds-stack">
+  <div class="missoes__cabecalho">
+    <div>
+      <h1 class="missoes__titulo">Missões</h1>
+      <p class="missoes__descricao">
+        Acompanhe objetivos diários, semanais e únicos.
+      </p>
+    </div>
+  </div>
+
+  <div class="missoes__filtros" role="tablist" aria-label="Status das missões">
+    @for (opcao of opcoesStatus; track opcao.valor) {
+      <button
+        class="missoes__filtro ds-chip"
+        type="button"
+        role="tab"
+        [class.missoes__filtro--ativo]="statusSelecionado() === opcao.valor"
+        [attr.aria-selected]="statusSelecionado() === opcao.valor"
+        (click)="selecionarStatus(opcao.valor)"
+      >
+        {{ opcao.rotulo }}
+      </button>
+    }
+  </div>
+
+  @if (mensagem()) {
+    <p class="missoes__sucesso ds-alerta ds-alerta--sucesso" role="status">
+      {{ mensagem() }}
+    </p>
+  }
+
+  @if (carregando()) {
+    <p class="missoes__estado">Carregando missões...</p>
+  } @else if (erro()) {
+    <p class="missoes__erro ds-alerta ds-alerta--erro" role="alert">
+      {{ erro() }}
+    </p>
+  } @else if (missoes().length === 0) {
+    <p class="missoes__estado">Nenhuma missão disponível no momento.</p>
+  } @else if (missoesFiltradas().length === 0) {
+    <p class="missoes__estado">Nenhuma missão encontrada nesse status.</p>
+  } @else {
+    <div class="missoes__grade">
+      @for (resumo of missoesFiltradas(); track resumo.missao.id) {
+        <article class="missoes__card ds-card ds-card--destaque">
+          <div class="missoes__topo-card">
+            <span class="missoes__tipo ds-chip ds-chip--info">
+              {{ obterRotuloTipo(resumo.missao.tipo) }}
+            </span>
+            <span
+              class="missoes__status ds-chip"
+              [attr.data-status]="resumo.status"
+            >
+              {{ obterRotuloStatus(resumo.status) }}
+            </span>
+          </div>
+
+          <div class="missoes__conteudo">
+            <h2 class="missoes__subtitulo">{{ resumo.missao.titulo }}</h2>
+            <p class="missoes__texto">{{ resumo.missao.descricao }}</p>
+            <p class="missoes__objetivo">{{ resumo.missao.objetivo }}</p>
+          </div>
+
+          <footer class="missoes__rodape-card">
+            <strong class="missoes__xp">
+              +{{ resumo.missao.xpRecompensa }} XP
+            </strong>
+
+            @if (resumo.status === 'disponivel') {
+              <button
+                class="missoes__botao ds-botao ds-botao--primario"
+                type="button"
+                [disabled]="missaoEmAcao() === resumo.missao.id"
+                (click)="iniciarMissao(resumo)"
+              >
+                @if (missaoEmAcao() === resumo.missao.id) {
+                  Iniciando...
+                } @else {
+                  Iniciar
+                }
+              </button>
+            } @else if (resumo.status === 'em_andamento') {
+              <button
+                class="missoes__botao ds-botao ds-botao--primario"
+                type="button"
+                [disabled]="missaoEmAcao() === resumo.missao.id"
+                (click)="concluirMissao(resumo)"
+              >
+                @if (missaoEmAcao() === resumo.missao.id) {
+                  Concluindo...
+                } @else {
+                  Concluir
+                }
+              </button>
+            }
+          </footer>
+        </article>
+      }
+    </div>
+  }
+</section>

@@ -1,0 +1,135 @@
+.missoes {
+  &__cabecalho,
+  &__topo-card,
+  &__rodape-card {
+    align-items: center;
+    display: flex;
+    gap: var(--ds-espaco-3);
+    justify-content: space-between;
+  }
+
+  &__cabecalho {
+    align-items: flex-start;
+  }
+
+  &__titulo {
+    color: var(--ds-cor-texto);
+    font-size: 1.5rem;
+    margin: 0 0 var(--ds-espaco-2);
+  }
+
+  &__descricao,
+  &__estado {
+    color: var(--ds-cor-texto-suave);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  &__filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ds-espaco-2);
+  }
+
+  &__filtro {
+    appearance: none;
+    border-color: var(--ds-cor-borda);
+    cursor: pointer;
+    background: var(--ds-cor-superficie);
+    color: var(--ds-cor-texto-suave);
+    transition:
+      background-color 0.16s ease,
+      border-color 0.16s ease,
+      color 0.16s ease,
+      box-shadow 0.16s ease;
+
+    &:hover {
+      border-color: var(--ds-cor-primaria);
+      color: var(--ds-cor-texto);
+    }
+
+    &:focus-visible {
+      border-color: var(--ds-cor-primaria);
+      box-shadow: 0 0 0 4px var(--ds-cor-foco);
+    }
+
+    &--ativo {
+      border-color: var(--ds-cor-primaria);
+      background: var(--ds-cor-primaria);
+      color: var(--ds-cor-primaria-texto);
+    }
+  }
+
+  &__grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--ds-espaco-4);
+  }
+
+  &__card {
+    display: flex;
+    min-height: 240px;
+    flex-direction: column;
+    gap: var(--ds-espaco-4);
+    padding: var(--ds-espaco-5);
+  }
+
+  &__topo-card,
+  &__rodape-card {
+    align-items: flex-start;
+  }
+
+  &__conteudo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--ds-espaco-2);
+  }
+
+  &__subtitulo {
+    color: var(--ds-cor-texto);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  &__texto,
+  &__objetivo {
+    color: var(--ds-cor-texto-suave);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__objetivo {
+    color: var(--ds-cor-texto);
+    font-weight: 700;
+  }
+
+  &__xp {
+    color: var(--ds-cor-sucesso);
+    font-size: 0.95rem;
+  }
+
+  &__botao {
+    white-space: nowrap;
+  }
+
+  &__erro,
+  &__sucesso {
+    margin: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .missoes {
+    &__topo-card,
+    &__rodape-card {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    &__botao {
+      width: 100%;
+    }
+  }
+}
