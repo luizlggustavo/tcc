@@ -1,0 +1,29 @@
+<section class="dashboard ds-stack">
+  <h1 class="dashboard__titulo ds-titulo-3">Dashboard</h1>
+  <p class="dashboard__descricao ds-texto">Acompanhe sua evolução nos estudos.</p>
+
+  @if (carregando()) {
+    <p class="dashboard__estado ds-texto" role="status">Carregando seu progresso...</p>
+  } @else if (erro()) {
+    <p class="dashboard__erro ds-alerta ds-alerta--erro" role="alert">{{ erro() }}</p>
+  } @else if (perfil(); as dados) {
+    <dl class="dashboard__resumo ds-grade ds-grade--indicadores">
+      <div class="dashboard__indicador ds-kpi">
+        <dt class="dashboard__rotulo ds-kpi__rotulo">Sequência ativa</dt>
+        <dd class="dashboard__valor ds-kpi__valor">
+          {{ dados.progresso.sequenciaDias }} dias
+        </dd>
+      </div>
+
+      <div class="dashboard__indicador ds-kpi">
+        <dt class="dashboard__rotulo ds-kpi__rotulo">XP total</dt>
+        <dd class="dashboard__valor ds-kpi__valor">{{ dados.progresso.xpTotal }}</dd>
+      </div>
+
+      <div class="dashboard__indicador ds-kpi">
+        <dt class="dashboard__rotulo ds-kpi__rotulo">Nível</dt>
+        <dd class="dashboard__valor ds-kpi__valor">{{ dados.progresso.nivel }}</dd>
+      </div>
+    </dl>
+  }
+</section>
