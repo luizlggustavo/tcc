@@ -1,0 +1,90 @@
+<section class="conquistas ds-stack">
+  <div class="conquistas__cabecalho">
+    <div>
+      <h1 class="conquistas__titulo">Conquistas</h1>
+      <p class="conquistas__descricao">
+        Acompanhe medalhas obtidas e próximos marcos de estudo.
+      </p>
+    </div>
+
+    <div class="conquistas__resumo ds-kpi" aria-label="Resumo de conquistas">
+      <strong class="conquistas__total">{{ totalObtidas() }}</strong>
+      <span class="conquistas__rotulo-total">obtidas</span>
+    </div>
+  </div>
+
+  <div
+    class="conquistas__filtros"
+    role="tablist"
+    aria-label="Filtro de conquistas"
+  >
+    @for (opcao of opcoesFiltro; track opcao.valor) {
+      <button
+        class="conquistas__filtro ds-chip"
+        type="button"
+        role="tab"
+        [class.conquistas__filtro--ativo]="filtroSelecionado() === opcao.valor"
+        [attr.aria-selected]="filtroSelecionado() === opcao.valor"
+        (click)="selecionarFiltro(opcao.valor)"
+      >
+        {{ opcao.rotulo }}
+      </button>
+    }
+  </div>
+
+  @if (carregando()) {
+    <p class="conquistas__estado">Carregando conquistas...</p>
+  } @else if (erro()) {
+    <p class="conquistas__erro ds-alerta ds-alerta--erro" role="alert">
+      {{ erro() }}
+    </p>
+  } @else if (conquistas().length === 0) {
+    <p class="conquistas__estado">Nenhuma conquista disponível no momento.</p>
+  } @else if (conquistasFiltradas().length === 0) {
+    <p class="conquistas__estado">Nenhuma conquista encontrada nesse filtro.</p>
+  } @else {
+    <div class="conquistas__grade">
+      @for (resumo of conquistasFiltradas(); track resumo.conquista.id) {
+        <article
+          class="conquistas__card ds-card ds-card--destaque"
+          [class.conquistas__card--bloqueada]="!resumo.desbloqueada"
+        >
+          <div class="conquistas__icone ds-avatar" aria-hidden="true">
+            {{ obterSimboloConquista(resumo.conquista.icone) }}
+          </div>
+
+          <div class="conquistas__conteudo">
+            <div class="conquistas__topo-card">
+              <h2 class="conquistas__subtitulo">
+                {{ resumo.conquista.titulo }}
+              </h2>
+              <span
+                class="conquistas__status ds-chip"
+                [attr.data-status]="resumo.desbloqueada ? 'obtida' : 'pendente'"
+              >
+                {{ resumo.desbloqueada ? 'Obtida' : 'Pendente' }}
+              </span>
+            </div>
+
+            <p class="conquistas__texto">
+              {{ resumo.conquista.descricao }}
+            </p>
+            <p class="conquistas__criterio">
+              {{ resumo.conquista.criterio }}
+            </p>
+
+            @if (resumo.conquistadoEm) {
+              <time
+                class="conquistas__data"
+                [attr.datetime]="resumo.conquistadoEm"
+              >
+                Obtida em
+                {{ resumo.conquistadoEm | date: 'dd/MM/yyyy HH:mm' }}
+              </time>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

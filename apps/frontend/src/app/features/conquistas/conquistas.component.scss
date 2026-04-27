@@ -1,0 +1,152 @@
+.conquistas {
+  &__cabecalho {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--ds-espaco-4);
+    justify-content: space-between;
+  }
+
+  &__titulo {
+    color: var(--ds-cor-texto);
+    font-size: 1.5rem;
+    margin: 0 0 var(--ds-espaco-2);
+  }
+
+  &__descricao,
+  &__estado {
+    color: var(--ds-cor-texto-suave);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  &__resumo {
+    min-width: 110px;
+  }
+
+  &__total {
+    color: var(--ds-cor-texto);
+    display: block;
+    font-family: var(--ds-fonte-titulo);
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  &__rotulo-total {
+    color: var(--ds-cor-texto-suave);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  &__filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ds-espaco-2);
+  }
+
+  &__filtro {
+    cursor: pointer;
+    background: var(--ds-cor-superficie);
+
+    &--ativo {
+      border-color: var(--ds-cor-primaria);
+      background: var(--ds-cor-info-fundo);
+      color: var(--ds-cor-info);
+    }
+  }
+
+  &__grade {
+    display: grid;
+    gap: var(--ds-espaco-4);
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  }
+
+  &__card {
+    display: grid;
+    gap: var(--ds-espaco-4);
+    grid-template-columns: auto minmax(0, 1fr);
+    min-height: 180px;
+    padding: var(--ds-espaco-5);
+
+    &--bloqueada {
+      opacity: 0.72;
+    }
+  }
+
+  &__icone {
+    background: var(--ds-cor-sucesso-fundo);
+    color: var(--ds-cor-sucesso);
+    font-size: 1.4rem;
+    height: 46px;
+    width: 46px;
+  }
+
+  &__conteudo {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: var(--ds-espaco-2);
+  }
+
+  &__topo-card {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--ds-espaco-2);
+    justify-content: space-between;
+  }
+
+  &__subtitulo {
+    color: var(--ds-cor-texto);
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  &__status {
+    flex: 0 0 auto;
+
+    &[data-status='obtida'] {
+      background: var(--ds-cor-sucesso-fundo);
+      color: var(--ds-cor-sucesso);
+    }
+
+    &[data-status='pendente'] {
+      background: var(--ds-cor-alerta-fundo);
+      color: var(--ds-cor-alerta);
+    }
+  }
+
+  &__texto,
+  &__criterio,
+  &__data {
+    color: var(--ds-cor-texto-suave);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__criterio {
+    color: var(--ds-cor-texto);
+    font-weight: 700;
+  }
+
+  &__data {
+    font-size: 0.78rem;
+  }
+
+  &__erro {
+    margin: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .conquistas {
+    &__cabecalho {
+      flex-direction: column;
+    }
+
+    &__card {
+      grid-template-columns: 1fr;
+    }
+  }
+}
