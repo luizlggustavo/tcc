@@ -1,0 +1,114 @@
+<section class="ranking ds-stack">
+  <div class="ranking__cabecalho">
+    <div>
+      <h1 class="ranking__titulo">Ranking</h1>
+      <p class="ranking__descricao">
+        Compare sua evolução por XP com outros estudantes.
+      </p>
+    </div>
+  </div>
+
+  <div class="ranking__abas" role="tablist" aria-label="Tipo de ranking">
+    @for (opcao of opcoes; track opcao.valor) {
+      <button
+        class="ranking__aba ds-chip"
+        type="button"
+        role="tab"
+        [class.ranking__aba--ativa]="tipoSelecionado() === opcao.valor"
+        [attr.aria-selected]="tipoSelecionado() === opcao.valor"
+        (click)="selecionarTipo(opcao.valor)"
+      >
+        {{ opcao.rotulo }}
+      </button>
+    }
+  </div>
+
+  @if (carregando()) {
+    <p class="ranking__estado">Carregando ranking...</p>
+  } @else if (erro()) {
+    <p class="ranking__erro ds-alerta ds-alerta--erro" role="alert">
+      {{ erro() }}
+    </p>
+  } @else if (resposta(); as dados) {
+    <div class="ranking__resumo ds-card ds-card--destaque">
+      <div>
+        <span class="ranking__rotulo-resumo">
+          {{ obterRotuloPeriodo(dados) }}
+        </span>
+        @if (dados.periodo) {
+          <p class="ranking__periodo">
+            {{ dados.periodo.inicio | date: 'dd/MM/yyyy' }} até
+            {{ obterFimPeriodo(dados.periodo) | date: 'dd/MM/yyyy' }}
+          </p>
+        }
+      </div>
+
+      @if (minhaEntrada(); as minhaPosicao) {
+        <div class="ranking__minha-posicao">
+          <span class="ranking__rotulo-resumo">Sua posição</span>
+          <strong class="ranking__valor-posicao">
+            #{{ minhaPosicao.posicao }}
+          </strong>
+        </div>
+      }
+    </div>
+
+    @if (entradas().length === 0) {
+      <p class="ranking__estado">Nenhum estudante encontrado no ranking.</p>
+    } @else {
+      <div class="ranking__tabela-container">
+        <table class="ranking__tabela">
+          <thead>
+            <tr>
+              <th scope="col">Posição</th>
+              <th scope="col">Usuário</th>
+              <th scope="col">XP</th>
+              <th scope="col">Nível</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (entrada of entradas(); track entrada.usuarioId) {
+              <tr
+                class="ranking__linha"
+                [class.ranking__linha--atual]="entrada.usuarioAtual"
+              >
+                <td>
+                  <span
+                    class="ranking__posicao ds-chip"
+                    [ngClass]="obterClassePosicao(entrada)"
+                  >
+                    #{{ entrada.posicao }}
+                  </span>
+                </td>
+                <td>
+                  <div class="ranking__usuario">
+                    <strong>{{ entrada.nomeUsuario }}</strong>
+                    @if (entrada.usuarioAtual) {
+                      <span>Você</span>
+                    }
+                  </div>
+                </td>
+                <td>{{ entrada.xp }} XP</td>
+                <td>Nível {{ entrada.nivel }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      @if (minhaEntrada(); as minhaPosicao) {
+        @if (!usuarioAtualNoTopo()) {
+          <article class="ranking__destaque ds-card ds-card--destaque">
+            <span class="ranking__rotulo-resumo">Você está fora do top 50</span>
+            <div class="ranking__destaque-linha">
+              <strong>#{{ minhaPosicao.posicao }}</strong>
+              <span>{{ minhaPosicao.nomeUsuario }}</span>
+              <span>{{ minhaPosicao.xp }} XP</span>
+              <span>Nível {{ minhaPosicao.nivel }}</span>
+            </div>
+          </article>
+        }
+      }
+    }
+  }
+</section>
