@@ -1,0 +1,39 @@
+<main class="nao-encontrado" [class.nao-encontrado--shell]="emShell">
+  <section class="nao-encontrado__card ds-card ds-card--destaque" aria-labelledby="titulo-nao-encontrado">
+    <p class="nao-encontrado__codigo ds-chip ds-chip--info">404</p>
+    <h1 class="nao-encontrado__titulo ds-titulo-3" id="titulo-nao-encontrado">
+      Página não encontrada
+    </h1>
+    <p class="nao-encontrado__subtitulo ds-texto">
+      @if (emShell) {
+        O conteúdo solicitado não existe nesta área. Você pode voltar para uma
+        tela principal do aplicativo.
+      } @else {
+        O endereço informado não existe ou foi movido. Você pode voltar para o
+        início do fluxo de acesso.
+      }
+    </p>
+
+    <div class="nao-encontrado__acoes">
+      @if (emShell) {
+        <a class="nao-encontrado__botao ds-botao ds-botao--primario" routerLink="/app/dashboard">
+          Ir para dashboard
+        </a>
+        <a
+          class="nao-encontrado__botao ds-botao ds-botao--secundario"
+          routerLink="/app/trilhas"
+        >
+          Ver trilhas
+        </a>
+      } @else {
+        <a class="nao-encontrado__botao ds-botao ds-botao--primario" routerLink="/login">Ir para login</a>
+        <a
+          class="nao-encontrado__botao ds-botao ds-botao--secundario"
+          routerLink="/cadastro"
+        >
+          Criar conta
+        </a>
+      }
+    </div>
+  </section>
+</main>

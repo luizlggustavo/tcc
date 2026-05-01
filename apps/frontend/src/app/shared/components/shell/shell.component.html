@@ -1,0 +1,20 @@
+<div class="ds-shell shell">
+  @if (sidebarAberta()) {
+    <button
+      class="shell__overlay"
+      type="button"
+      aria-label="Fechar menu"
+      (click)="fecharSidebar()"
+    ></button>
+  }
+  <app-sidebar
+    [aberta]="sidebarAberta()"
+    (navegar)="fecharSidebar()"
+  />
+  <div class="ds-shell__conteudo shell__conteudo">
+    <app-header (alternarSidebar)="alternarSidebar()" />
+    <main class="shell__main">
+      <router-outlet />
+    </main>
+  </div>
+</div>

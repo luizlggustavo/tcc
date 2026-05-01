@@ -1,0 +1,74 @@
+.sidebar {
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+    &--aberta {
+      transform: translateX(0);
+    }
+  }
+
+  &__perfil {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    min-width: 0;
+    gap: 12px;
+    padding: 20px 20px 16px;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      background: var(--ds-cor-fundo);
+    }
+  }
+
+  &__perfil-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__perfil-textos {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__perfil-nome,
+  &__perfil-email {
+    overflow-wrap: anywhere;
+    color: var(--ds-cor-texto);
+  }
+
+  &__perfil-nome {
+    font-family: var(--ds-fonte-titulo);
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  &__perfil-email {
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.72;
+    line-height: 1.15;
+  }
+
+  &__sair {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+  }
+}

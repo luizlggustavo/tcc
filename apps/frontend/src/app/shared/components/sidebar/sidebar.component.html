@@ -1,0 +1,45 @@
+<nav
+  class="ds-sidebar sidebar"
+  [class.sidebar--aberta]="aberta"
+  aria-label="Menu principal"
+>
+  <a
+    class="sidebar__perfil"
+    routerLink="/app/perfil"
+    aria-label="Abrir meu perfil"
+    (click)="fecharAoNavegar()"
+  >
+    <span class="sidebar__perfil-avatar ds-avatar" aria-hidden="true">
+      {{ usuario()?.nome?.charAt(0)?.toUpperCase() ?? '?' }}
+    </span>
+    <span class="sidebar__perfil-textos">
+      <strong class="sidebar__perfil-nome">{{ usuario()?.nome ?? 'Usuário' }}</strong>
+      <small class="sidebar__perfil-email">{{ usuario()?.email ?? '' }}</small>
+    </span>
+  </a>
+
+  <ul class="ds-menu" role="list">
+    @for (item of itens(); track item.rota) {
+      <li>
+        <a
+          class="ds-menu__item"
+          [routerLink]="item.rota"
+          routerLinkActive="ds-menu__item--ativo"
+          ariaCurrentWhenActive="page"
+          (click)="fecharAoNavegar()"
+        >
+          {{ item.rotulo }}
+        </a>
+      </li>
+    }
+    <li>
+      <button
+        class="ds-menu__item sidebar__sair"
+        type="button"
+        (click)="sair()"
+      >
+        Sair
+      </button>
+    </li>
+  </ul>
+</nav>

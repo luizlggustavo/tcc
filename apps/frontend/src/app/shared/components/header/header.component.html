@@ -1,0 +1,24 @@
+<header class="ds-topbar header">
+  <button
+    class="ds-botao ds-botao--fantasma ds-botao--pequeno header__hamburger"
+    type="button"
+    aria-label="Abrir menu de navegação"
+    (click)="emitirAlternarSidebar()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <a
+    class="header__marca"
+    routerLink="/app/dashboard"
+    aria-label="Ir para a dashboard"
+  >
+    <img class="header__logo" src="logo-tcc.svg" alt="" aria-hidden="true" />
+    <span class="header__titulo">
+      <strong>Trilha de Conhecimento Contínuo </strong>
+      <small>Transforme estudos em conquistas</small>
+    </span>
+  </a>
+</header>
