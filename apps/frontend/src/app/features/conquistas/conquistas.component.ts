@@ -53,14 +53,14 @@ export class ConquistasComponent implements OnInit {
       .replace(/[\u0300-\u036f]/g, '');
 
     if (iconeNormalizado.includes('trofeu')) return '🏆';
-    if (iconeNormalizado.includes('estrela')) return '⭐';
+    if (iconeNormalizado.includes('estrela')) return '★';
     if (iconeNormalizado.includes('medalha')) return '🥇';
-    if (iconeNormalizado.includes('coroa')) return '👑';
-    if (iconeNormalizado.includes('livro')) return '📚';
-    if (iconeNormalizado.includes('alvo')) return '🎯';
+    if (iconeNormalizado.includes('coroa')) return '♛';
+    if (iconeNormalizado.includes('livro')) return '📖';
+    if (iconeNormalizado.includes('alvo')) return '◎';
     if (iconeNormalizado.includes('raio')) return '⚡';
 
-    return '🏅';
+    return '◉';
   }
 
   ngOnInit(): void {

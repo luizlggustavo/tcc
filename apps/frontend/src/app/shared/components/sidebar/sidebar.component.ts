@@ -5,6 +5,7 @@ import { AutenticacaoService } from '../../../core/services/autenticacao.service
 interface ItemMenu {
   rotulo: string;
   rota: string;
+  visivel: (papel?: string) => boolean;
 }
 
 @Component({
@@ -30,19 +31,21 @@ export class SidebarComponent {
   }
 
   protected readonly itens = computed<ItemMenu[]>(() => {
+    const papel = this.autenticacaoService.usuarioAtual()?.papel;
     const itens: ItemMenu[] = [
-      { rotulo: 'Dashboard', rota: '/app/dashboard' },
-      { rotulo: 'Trilhas', rota: '/app/trilhas' },
-      { rotulo: 'Missões', rota: '/app/missoes' },
-      { rotulo: 'Conquistas', rota: '/app/conquistas' },
-      { rotulo: 'Ranking', rota: '/app/ranking' },
-      { rotulo: 'Perfil', rota: '/app/perfil' },
+      { rotulo: 'Dashboard', rota: '/app/dashboard', visivel: () => true },
+      { rotulo: 'Perfil', rota: '/app/perfil', visivel: () => true },
+      { rotulo: 'Trilhas', rota: '/app/trilhas', visivel: () => true },
+      { rotulo: 'Missões', rota: '/app/missoes', visivel: () => true },
+      { rotulo: 'Conquistas', rota: '/app/conquistas', visivel: () => true },
+      { rotulo: 'Ranking', rota: '/app/ranking', visivel: () => true },
+      {
+        rotulo: 'Administração',
+        rota: '/app/admin',
+        visivel: (papelAtual) => papelAtual === 'administrador',
+      },
     ];
 
-    if (this.autenticacaoService.usuarioAtual()?.papel === 'administrador') {
-      itens.push({ rotulo: 'Administração', rota: '/app/admin' });
-    }
-
-    return itens;
+    return itens.filter((item) => item.visivel(papel));
   });
 }

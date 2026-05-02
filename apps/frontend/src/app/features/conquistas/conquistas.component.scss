@@ -75,10 +75,15 @@
   }
 
   &__icone {
+    align-items: center;
     background: var(--ds-cor-sucesso-fundo);
     color: var(--ds-cor-sucesso);
-    font-size: 1.4rem;
+    display: grid;
+    font-size: 1.1rem;
     height: 46px;
+    justify-items: center;
+    line-height: 1;
+    place-items: center;
     width: 46px;
   }
 

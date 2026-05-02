@@ -66,4 +66,10 @@ describe('ConquistasComponent', () => {
     expect(texto).toContain('100 XP');
     expect(texto).toContain('Pendente');
   });
+
+  it('deve usar simbolos compactos e universais para icones de conquista', () => {
+    expect(fixture.componentInstance.obterSimboloConquista('Trofeu de ouro')).toBe('🏆');
+    expect(fixture.componentInstance.obterSimboloConquista('Estrela da semana')).toBe('★');
+    expect(fixture.componentInstance.obterSimboloConquista('icone desconhecido')).toBe('◉');
+  });
 });
