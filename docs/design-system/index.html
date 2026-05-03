@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini Design System TCC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./mini-design-system.css" />
+  </head>
+  <body>
+    <main class="pagina">
+      <header class="cabecalho-documento">
+        <p class="rotulo-superior">Rebranding visual</p>
+        <h1>Mini Design System TCC</h1>
+        <p class="texto-introducao">
+          Direção visual mais jovem, digital e direta para uma plataforma de
+          estudos gamificada, com componentes prontos para dashboard, missões,
+          ranking e progresso.
+        </p>
+      </header>
+
+      <section class="fundamentos" aria-label="Fundamentos visuais">
+        <article class="fundamento">
+          <span class="fundamento__rotulo">Tipografia</span>
+          <strong class="fundamento__valor">Sora + Plus Jakarta Sans</strong>
+          <p>Títulos geométricos e leitura limpa para interfaces de estudo.</p>
+        </article>
+
+        <article class="fundamento">
+          <span class="fundamento__rotulo">Raio</span>
+          <strong class="fundamento__valor">8px</strong>
+          <p>Componentes compactos, escaneáveis e com presença de app.</p>
+        </article>
+
+        <article class="fundamento">
+          <span class="fundamento__rotulo">Acentos</span>
+          <strong class="fundamento__valor">Azul, coral, lima e ciano</strong>
+          <p>
+            Gamificação viva, com contraste controlado e sem brilho excessivo.
+          </p>
+        </article>
+      </section>
+
+      <section
+        class="amostra-tema tema-claro"
+        aria-label="Amostra em tema claro"
+      >
+        <div class="barra-tema">
+          <div>
+            <p class="rotulo-superior">Modo claro</p>
+            <h2>Ambiente claro para uso diário</h2>
+          </div>
+          <div class="amostras-cor" aria-label="Cores do tema claro">
+            <span class="amostra-cor amostra-cor--primaria"></span>
+            <span class="amostra-cor amostra-cor--sucesso"></span>
+            <span class="amostra-cor amostra-cor--alerta"></span>
+            <span class="amostra-cor amostra-cor--info"></span>
+          </div>
+        </div>
+
+        <div class="aplicativo">
+          <aside class="navegacao-lateral" aria-label="Menu principal claro">
+            <a class="marca" href="#">
+              <img
+                class="marca__imagem"
+                src="../../apps/frontend/public/logo-tcc.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <span>
+                <strong>TCC Estudos</strong>
+                <small>Plataforma gamificada</small>
+              </span>
+            </a>
+
+            <nav class="menu">
+              <a class="menu__item menu__item--ativo" href="#">Dashboard</a>
+              <a class="menu__item" href="#">Trilhas</a>
+              <a class="menu__item" href="#">Missões</a>
+              <a class="menu__item" href="#">Conquistas</a>
+              <a class="menu__item" href="#">Ranking</a>
+            </nav>
+
+            <div class="resumo-lateral">
+              <span class="chip chip--sucesso">12 dias</span>
+              <p>Sequência ativa mantendo o ritmo de estudo.</p>
+            </div>
+          </aside>
+
+          <div class="conteudo">
+            <header class="topo-produto">
+              <label class="campo-busca">
+                <span>Buscar</span>
+                <input type="search" placeholder="Trilha, lição ou missão" />
+              </label>
+
+              <div class="usuario">
+                <span class="usuario__avatar">LG</span>
+                <span>
+                  <strong>Luiz Gustavo</strong>
+                  <small>Nível 8</small>
+                </span>
+              </div>
+            </header>
+
+            <section class="cabecalho-painel">
+              <div>
+                <span class="chip chip--info">Sessão sugerida</span>
+                <h3>Plano de estudos de hoje</h3>
+                <p>
+                  Priorize a trilha de algoritmos e conclua uma missão curta
+                  para manter a sequência.
+                </p>
+              </div>
+
+              <div class="acoes">
+                <button class="botao botao--secundario" type="button">
+                  Ver trilhas
+                </button>
+                <button class="botao botao--primario" type="button">
+                  Iniciar estudo
+                </button>
+              </div>
+            </section>
+
+            <section class="grade-indicadores" aria-label="Indicadores">
+              <article class="cartao-indicador">
+                <span class="cartao-indicador__rotulo">Sequência</span>
+                <strong>12 dias</strong>
+                <small>+3 desde a semana passada</small>
+              </article>
+
+              <article class="cartao-indicador">
+                <span class="cartao-indicador__rotulo">XP semanal</span>
+                <strong>1.840</strong>
+                <small>74% da meta semanal</small>
+              </article>
+
+              <article class="cartao-indicador">
+                <span class="cartao-indicador__rotulo">Nível</span>
+                <strong>8</strong>
+                <small>320 XP para o próximo nível</small>
+              </article>
+            </section>
+
+            <section class="grade-conteudo">
+              <article class="painel-estudo">
+                <div class="painel-estudo__cabecalho">
+                  <div>
+                    <span class="rotulo-superior">Trilha em progresso</span>
+                    <h4>Algoritmos essenciais</h4>
+                  </div>
+                  <span class="chip">68%</span>
+                </div>
+
+                <div class="barra-progresso" aria-label="Progresso de 68%">
+                  <span style="width: 68%"></span>
+                </div>
+
+                <div class="lista-aulas">
+                  <div class="aula aula--concluida">
+                    <span>01</span>
+                    <p>Complexidade de algoritmos</p>
+                  </div>
+                  <div class="aula aula--ativa">
+                    <span>02</span>
+                    <p>Estruturas lineares</p>
+                  </div>
+                  <div class="aula">
+                    <span>03</span>
+                    <p>Busca e ordenação</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="painel-lista">
+                <div class="painel-lista__cabecalho">
+                  <div>
+                    <span class="rotulo-superior">Missões</span>
+                    <h4>Próximas recompensas</h4>
+                  </div>
+                  <a href="#">Ver todas</a>
+                </div>
+
+                <div class="item-lista">
+                  <span class="marcador marcador--sucesso"></span>
+                  <div>
+                    <strong>Concluir duas lições</strong>
+                    <small>+120 XP</small>
+                  </div>
+                  <span class="chip chip--sucesso">Ativa</span>
+                </div>
+
+                <div class="item-lista">
+                  <span class="marcador marcador--alerta"></span>
+                  <div>
+                    <strong>Revisar conteúdo antigo</strong>
+                    <small>+80 XP</small>
+                  </div>
+                  <span class="chip chip--alerta">Hoje</span>
+                </div>
+
+                <div class="item-lista">
+                  <span class="marcador marcador--info"></span>
+                  <div>
+                    <strong>Entrar no ranking diário</strong>
+                    <small>+1 conquista</small>
+                  </div>
+                  <span class="chip">Opcional</span>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="amostra-tema tema-escuro"
+        aria-label="Amostra em tema escuro"
+      >
+        <div class="barra-tema">
+          <div>
+            <p class="rotulo-superior">Modo escuro</p>
+            <h2>Ambiente escuro para estudo prolongado</h2>
+          </div>
+          <div class="amostras-cor" aria-label="Cores do tema escuro">
+            <span class="amostra-cor amostra-cor--primaria"></span>
+            <span class="amostra-cor amostra-cor--sucesso"></span>
+            <span class="amostra-cor amostra-cor--alerta"></span>
+            <span class="amostra-cor amostra-cor--info"></span>
+          </div>
+        </div>
+
+        <div class="aplicativo">
+          <aside class="navegacao-lateral" aria-label="Menu principal escuro">
+            <a class="marca" href="#">
+              <img
+                class="marca__imagem"
+                src="../../apps/frontend/public/logo-tcc.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <span>
+                <strong>TCC Estudos</strong>
+                <small>Plataforma gamificada</small>
+              </span>
+            </a>
+
+            <nav class="menu">
+              <a class="menu__item menu__item--ativo" href="#">Dashboard</a>
+              <a class="menu__item" href="#">Trilhas</a>
+              <a class="menu__item" href="#">Missões</a>
+              <a class="menu__item" href="#">Conquistas</a>
+              <a class="menu__item" href="#">Ranking</a>
+            </nav>
+
+            <div class="resumo-lateral">
+              <span class="chip chip--sucesso">Top 10</span>
+              <p>Você subiu duas posições no ranking semanal.</p>
+            </div>
+          </aside>
+
+          <div class="conteudo">
+            <header class="topo-produto">
+              <label class="campo-busca">
+                <span>Buscar</span>
+                <input type="search" placeholder="Trilha, lição ou missão" />
+              </label>
+
+              <div class="usuario">
+                <span class="usuario__avatar">LG</span>
+                <span>
+                  <strong>Luiz Gustavo</strong>
+                  <small>Nível 8</small>
+                </span>
+              </div>
+            </header>
+
+            <section class="cabecalho-painel">
+              <div>
+                <span class="chip chip--info">Foco noturno</span>
+                <h3>Revisão antes de encerrar</h3>
+                <p>
+                  Feche a sessão com uma lição curta e preserve a continuidade
+                  sem sobrecarregar o estudo.
+                </p>
+              </div>
+
+              <div class="acoes">
+                <button class="botao botao--secundario" type="button">
+                  Pausar
+                </button>
+                <button class="botao botao--primario" type="button">
+                  Continuar
+                </button>
+              </div>
+            </section>
+
+            <section class="grade-indicadores" aria-label="Indicadores">
+              <article class="cartao-indicador">
+                <span class="cartao-indicador__rotulo">Ranking</span>
+                <strong>8º</strong>
+                <small>Subiu 2 posições</small>
+              </article>
+
+              <article class="cartao-indicador">
+                <span class="cartao-indicador__rotulo">Conquistas</span>
+                <strong>24</strong>
+                <small>3 novas este mês</small>
+              </article>
+
+              <article class="cartao-indicador">
+                <span class="cartao-indicador__rotulo">Foco</span>
+                <strong>42 min</strong>
+                <small>Meta diaria concluida</small>
+              </article>
+            </section>
+
+            <section class="grade-conteudo">
+              <article class="painel-estudo">
+                <div class="painel-estudo__cabecalho">
+                  <div>
+                    <span class="rotulo-superior">Ranking semanal</span>
+                    <h4>Grupo de estudos</h4>
+                  </div>
+                  <span class="chip chip--alerta">Ao vivo</span>
+                </div>
+
+                <div class="ranking">
+                  <div class="linha-ranking linha-ranking--destaque">
+                    <span>08</span>
+                    <strong>Luiz Gustavo</strong>
+                    <small>12.480 XP</small>
+                  </div>
+                  <div class="linha-ranking">
+                    <span>09</span>
+                    <strong>Ana Clara</strong>
+                    <small>12.190 XP</small>
+                  </div>
+                  <div class="linha-ranking">
+                    <span>10</span>
+                    <strong>Rafael Lima</strong>
+                    <small>11.930 XP</small>
+                  </div>
+                </div>
+              </article>
+
+              <article class="painel-lista">
+                <div class="painel-lista__cabecalho">
+                  <div>
+                    <span class="rotulo-superior">Componentes</span>
+                    <h4>Estados essenciais</h4>
+                  </div>
+                  <a href="#">Guia</a>
+                </div>
+
+                <div class="grupo-componentes">
+                  <button class="botao botao--primario" type="button">
+                    Primário
+                  </button>
+                  <button class="botao botao--secundario" type="button">
+                    Secundário
+                  </button>
+                  <button class="botao botao--fantasma" type="button">
+                    Fantasma
+                  </button>
+                </div>
+
+                <div class="grupo-chips">
+                  <span class="chip chip--sucesso">Concluída</span>
+                  <span class="chip chip--alerta">Pendente</span>
+                  <span class="chip chip--info">Nova</span>
+                  <span class="chip">Neutra</span>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Componentes do Design System TCC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./design-system.css" />
+    <style>
+      .pagina-documentacao {
+        padding: var(--ds-espaco-10) var(--ds-espaco-4);
+      }
+
+      .secao-documentacao {
+        margin-top: var(--ds-espaco-8);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="pagina-documentacao">
+      <div class="ds-container ds-stack" style="--ds-stack-espaco: 24px">
+        <header class="ds-stack">
+          <span class="ds-chip ds-chip--info">Design System</span>
+          <h1 class="ds-titulo-1">Componentes TCC</h1>
+          <p class="ds-texto">
+            Classes utilitarias e componentes CSS para montar telas do frontend
+            sem acoplar estilos aos componentes Angular.
+          </p>
+        </header>
+
+        <section class="ds-painel secao-documentacao">
+          <div class="ds-card__cabecalho">
+            <div>
+              <h2 class="ds-card__titulo">Botões</h2>
+              <p class="ds-card__descricao">Ações principais e secundárias.</p>
+            </div>
+          </div>
+          <div class="ds-card__corpo ds-acoes">
+            <button class="ds-botao ds-botao--primario" type="button">
+              Primário
+            </button>
+            <button class="ds-botao ds-botao--secundario" type="button">
+              Secundário
+            </button>
+            <button class="ds-botao ds-botao--fantasma" type="button">
+              Fantasma
+            </button>
+            <button class="ds-botao ds-botao--perigo" type="button">
+              Perigo
+            </button>
+          </div>
+        </section>
+
+        <section class="ds-grade ds-grade--indicadores secao-documentacao">
+          <article class="ds-kpi">
+            <span class="ds-kpi__rotulo">Sequência</span>
+            <strong class="ds-kpi__valor">12 dias</strong>
+            <span class="ds-kpi__apoio">+3 desde a semana passada</span>
+          </article>
+
+          <article class="ds-kpi">
+            <span class="ds-kpi__rotulo">XP semanal</span>
+            <strong class="ds-kpi__valor">1.840</strong>
+            <span class="ds-kpi__apoio">74% da meta semanal</span>
+          </article>
+
+          <article class="ds-kpi">
+            <span class="ds-kpi__rotulo">Nível</span>
+            <strong class="ds-kpi__valor">8</strong>
+            <span class="ds-kpi__apoio">320 XP para o próximo nível</span>
+          </article>
+        </section>
+
+        <section class="ds-grade ds-grade--duas-colunas secao-documentacao">
+          <article class="ds-card ds-card--destaque">
+            <div class="ds-card__cabecalho">
+              <div>
+                <h2 class="ds-card__titulo">Progresso da trilha</h2>
+                <p class="ds-card__descricao">Algoritmos essenciais</p>
+              </div>
+              <span class="ds-chip">68%</span>
+            </div>
+            <div class="ds-card__corpo ds-stack">
+              <div class="ds-progresso" aria-label="Progresso de 68%">
+                <span class="ds-progresso__barra">
+                  <span
+                    class="ds-progresso__valor"
+                    style="--ds-progresso-valor: 68%"
+                  ></span>
+                </span>
+              </div>
+              <ul class="ds-lista">
+                <li class="ds-lista__item">
+                  <span
+                    class="ds-lista__marcador ds-lista__marcador--sucesso"
+                  ></span>
+                  <strong>Complexidade de algoritmos</strong>
+                </li>
+                <li class="ds-lista__item">
+                  <span class="ds-lista__marcador"></span>
+                  <strong>Estruturas lineares</strong>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="ds-card">
+            <div class="ds-card__cabecalho">
+              <div>
+                <h2 class="ds-card__titulo">Missões</h2>
+                <p class="ds-card__descricao">Próximas recompensas</p>
+              </div>
+              <a class="ds-link" href="#">Ver todas</a>
+            </div>
+            <div class="ds-card__corpo">
+              <ul class="ds-lista">
+                <li class="ds-lista__item">
+                  <span
+                    class="ds-lista__marcador ds-lista__marcador--sucesso"
+                  ></span>
+                  <strong>Concluir duas lições</strong>
+                  <span class="ds-chip ds-chip--sucesso">Ativa</span>
+                </li>
+                <li class="ds-lista__item">
+                  <span
+                    class="ds-lista__marcador ds-lista__marcador--alerta"
+                  ></span>
+                  <strong>Revisar conteúdo antigo</strong>
+                  <span class="ds-chip ds-chip--alerta">Hoje</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <section class="ds-grade ds-grade--duas-colunas secao-documentacao">
+          <form class="ds-card">
+            <div class="ds-card__cabecalho">
+              <div>
+                <h2 class="ds-card__titulo">Formulário</h2>
+                <p class="ds-card__descricao">Campos, erro e ações.</p>
+              </div>
+            </div>
+            <div class="ds-card__corpo ds-stack">
+              <label class="ds-campo">
+                <span class="ds-campo__rotulo">E-mail</span>
+                <input
+                  class="ds-campo__controle"
+                  type="email"
+                  placeholder="seu@email.com"
+                />
+              </label>
+              <label class="ds-campo ds-campo--erro">
+                <span class="ds-campo__rotulo">Senha</span>
+                <input class="ds-campo__controle" type="password" />
+                <span class="ds-campo__erro">Informe a senha.</span>
+              </label>
+              <button class="ds-botao ds-botao--primario" type="button">
+                Entrar
+              </button>
+            </div>
+          </form>
+
+          <article class="ds-card">
+            <div class="ds-card__cabecalho">
+              <div>
+                <h2 class="ds-card__titulo">Ranking</h2>
+                <p class="ds-card__descricao">Estado de destaque.</p>
+              </div>
+              <span class="ds-avatar">LG</span>
+            </div>
+            <div class="ds-card__corpo">
+              <div class="ds-ranking">
+                <div class="ds-ranking__linha ds-ranking__linha--destaque">
+                  <span>08</span>
+                  <strong>Luiz Gustavo</strong>
+                  <span>12.480 XP</span>
+                </div>
+                <div class="ds-ranking__linha">
+                  <span>09</span>
+                  <strong>Ana Clara</strong>
+                  <span>12.190 XP</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
