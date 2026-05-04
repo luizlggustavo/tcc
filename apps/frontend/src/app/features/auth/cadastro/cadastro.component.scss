@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding: var(--ds-espaco-6);
 
   &__card {
@@ -25,5 +25,11 @@
   &__acao-secundaria {
     margin: var(--ds-espaco-5) 0 0;
     text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .auth {
+    padding: var(--ds-espaco-4);
   }
 }

@@ -32,3 +32,11 @@
     padding: var(--ds-espaco-6);
   }
 }
+
+@media (max-width: 767px) {
+  .shell {
+    &__main {
+      padding: var(--ds-espaco-4);
+    }
+  }
+}
