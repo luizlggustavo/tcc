@@ -8,6 +8,10 @@
     max-width: 820px;
   }
 
+  &__categoria {
+    align-self: flex-start;
+  }
+
   &__titulo {
     margin: var(--ds-espaco-3) 0 var(--ds-espaco-2);
   }

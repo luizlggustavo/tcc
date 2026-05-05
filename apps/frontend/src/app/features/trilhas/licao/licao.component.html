@@ -15,7 +15,7 @@
   } @else if (erro()) {
     <p class="licao__erro ds-alerta ds-alerta--erro" role="alert">{{ erro() }}</p>
   } @else if (licao(); as dados) {
-    <header class="licao__cabecalho">
+    <header class="licao__cabecalho ds-painel ds-stack">
       <span class="licao__origem">
         {{ dados.trilha.titulo }} / {{ dados.modulo.titulo }}
       </span>
@@ -87,7 +87,7 @@
       </div>
     }
 
-    <footer class="licao__acoes">
+    <footer class="licao__acoes ds-acoes">
       <button
         class="licao__botao-concluir ds-botao ds-botao--primario"
         type="button"

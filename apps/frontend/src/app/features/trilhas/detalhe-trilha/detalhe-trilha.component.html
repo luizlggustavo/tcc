@@ -8,7 +8,7 @@
   } @else if (erro()) {
     <p class="detalhe-trilha__erro ds-alerta ds-alerta--erro" role="alert">{{ erro() }}</p>
   } @else if (trilha(); as dados) {
-    <header class="detalhe-trilha__cabecalho">
+    <header class="detalhe-trilha__cabecalho ds-painel ds-stack">
       <span class="detalhe-trilha__categoria ds-chip ds-chip--sucesso">{{ dados.categoria.nome }}</span>
       <h1 class="detalhe-trilha__titulo ds-titulo-3">{{ dados.titulo }}</h1>
       <p class="detalhe-trilha__descricao ds-texto">{{ dados.descricao }}</p>
@@ -46,7 +46,7 @@
     } @else {
       <div class="detalhe-trilha__modulos ds-stack">
         @for (modulo of dados.modulos; track modulo.id) {
-          <section class="detalhe-trilha__modulo ds-card">
+          <section class="detalhe-trilha__modulo ds-card ds-card--interativo">
             <h2 class="detalhe-trilha__subtitulo ds-card__titulo">{{ modulo.titulo }}</h2>
 
             @if (modulo.licoes.length === 0) {

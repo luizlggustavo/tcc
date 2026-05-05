@@ -1,15 +1,22 @@
 .dashboard {
+  &__cabecalho {
+    gap: var(--ds-espaco-2);
+  }
+
   &__titulo {
     margin: 0;
   }
 
   &__descricao {
-    font-size: 0.95rem;
     margin: 0;
   }
 
   &__resumo {
     margin: 0;
+  }
+
+  &__indicador {
+    min-height: 140px;
   }
 
   &__rotulo {

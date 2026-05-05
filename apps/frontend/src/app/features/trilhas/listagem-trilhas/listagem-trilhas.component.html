@@ -1,5 +1,5 @@
-<section class="trilhas">
-  <div class="trilhas__cabecalho">
+<section class="trilhas ds-stack">
+  <div class="trilhas__cabecalho ds-acoes">
     <div>
       <h1 class="trilhas__titulo ds-titulo-3">Trilhas de estudo</h1>
       <p class="trilhas__descricao ds-texto">Escolha uma trilha publicada para estudar.</p>
@@ -31,7 +31,7 @@
   } @else if (trilhasFiltradas().length === 0) {
     <p class="trilhas__estado ds-texto">Nenhuma trilha encontrada nessa categoria.</p>
   } @else {
-    <div class="trilhas__grade">
+    <div class="trilhas__grade ds-grade">
       @for (trilha of trilhasFiltradas(); track trilha.id) {
         <a class="trilhas__card ds-card ds-card--interativo" [routerLink]="['/app/trilhas', trilha.id]">
           <span class="trilhas__categoria ds-chip ds-chip--sucesso">{{ trilha.categoria.nome }}</span>
