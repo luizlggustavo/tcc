@@ -29,7 +29,7 @@
   @if (carregando()) {
     <p class="admin__estado">Carregando painel administrativo...</p>
   } @else {
-    <div class="admin__grade">
+    <div class="admin__grade ds-grade">
       <section class="admin__secao ds-painel">
         <h2 class="admin__subtitulo">Usuários</h2>
 
@@ -201,7 +201,7 @@
           <p class="admin__estado">Carregando métricas acadêmicas...</p>
         } @else if (estatisticas().length) {
           <div class="admin__tabela-container">
-            <table class="admin__tabela admin__tabela--metricas">
+            <table class="admin__tabela admin__tabela--metricas ds-painel">
               <thead>
                 <tr>
                   <th>Período</th>

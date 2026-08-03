@@ -30,7 +30,7 @@
       {{ erro() }}
     </p>
   } @else if (resposta(); as dados) {
-    <div class="ranking__resumo ds-card ds-card--destaque">
+    <div class="ranking__resumo ds-card ds-card--destaque ds-painel">
       <div>
         <span class="ranking__rotulo-resumo">
           {{ obterRotuloPeriodo(dados) }}
@@ -57,7 +57,7 @@
       <p class="ranking__estado">Nenhum estudante encontrado no ranking.</p>
     } @else {
       <div class="ranking__tabela-container">
-        <table class="ranking__tabela">
+        <table class="ranking__tabela ds-painel">
           <thead>
             <tr>
               <th scope="col">Posição</th>

@@ -1,5 +1,5 @@
 <section class="conquistas ds-stack">
-  <div class="conquistas__cabecalho">
+  <div class="conquistas__cabecalho ds-acoes">
     <div>
       <h1 class="conquistas__titulo">Conquistas</h1>
       <p class="conquistas__descricao">
@@ -43,7 +43,7 @@
   } @else if (conquistasFiltradas().length === 0) {
     <p class="conquistas__estado">Nenhuma conquista encontrada nesse filtro.</p>
   } @else {
-    <div class="conquistas__grade">
+    <div class="conquistas__grade ds-grade">
       @for (resumo of conquistasFiltradas(); track resumo.conquista.id) {
         <article
           class="conquistas__card ds-card ds-card--destaque"

@@ -1,5 +1,5 @@
 <section class="missoes ds-stack">
-  <div class="missoes__cabecalho">
+  <div class="missoes__cabecalho ds-acoes">
     <div>
       <h1 class="missoes__titulo">Missões</h1>
       <p class="missoes__descricao">
@@ -40,7 +40,7 @@
   } @else if (missoesFiltradas().length === 0) {
     <p class="missoes__estado">Nenhuma missão encontrada nesse status.</p>
   } @else {
-    <div class="missoes__grade">
+    <div class="missoes__grade ds-grade">
       @for (resumo of missoesFiltradas(); track resumo.missao.id) {
         <article class="missoes__card ds-card ds-card--destaque">
           <div class="missoes__topo-card">

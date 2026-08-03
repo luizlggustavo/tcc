@@ -4,7 +4,7 @@
   @if (carregando()) {
     <p class="perfil__estado">Carregando seus dados...</p>
   } @else if (perfil(); as dados) {
-    <div class="perfil__grade">
+    <div class="perfil__grade ds-grade ds-grade--duas-colunas">
       <form
         class="perfil__card perfil__formulario ds-card ds-card--destaque"
         [formGroup]="formulario"
@@ -99,7 +99,7 @@
       <div class="perfil__card ds-card ds-card--destaque">
         <h2 class="perfil__subtitulo">Progresso</h2>
 
-        <dl class="perfil__progresso">
+        <dl class="perfil__progresso ds-grade">
           <div class="perfil__indicador ds-kpi">
             <dt class="perfil__rotulo">XP total</dt>
             <dd class="perfil__valor">{{ dados.progresso.xpTotal }}</dd>
@@ -122,9 +122,9 @@
           @if (historicoXp().length === 0) {
             <p class="perfil__estado">Nenhum XP registrado ainda.</p>
           } @else {
-            <ul class="perfil__lista-historico">
+            <ul class="perfil__lista-historico ds-lista">
               @for (evento of historicoXp(); track evento.id) {
-                <li class="perfil__evento-xp">
+                <li class="perfil__evento-xp ds-lista__item">
                   <div>
                     <strong class="perfil__origem-xp">
                       {{ descreverOrigemXp(evento) }}
