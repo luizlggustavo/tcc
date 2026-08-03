@@ -58,6 +58,10 @@
       border-radius: 2px;
     }
 
+    &:focus-visible {
+      box-shadow: 0 0 0 4px var(--ds-cor-foco);
+    }
+
     @media (max-width: 767px) {
       display: flex;
     }

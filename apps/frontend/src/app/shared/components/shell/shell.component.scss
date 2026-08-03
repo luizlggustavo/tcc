@@ -10,6 +10,7 @@
     cursor: pointer;
     display: none;
     padding: 0;
+    inset: 0;
 
     @media (max-width: 767px) {
       background-color: var(--ds-cor-overlay);
