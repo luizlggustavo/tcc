@@ -35,7 +35,7 @@
     appearance: none;
     border-color: var(--ds-cor-borda);
     cursor: pointer;
-    background: var(--ds-cor-superficie);
+    background: var(--ds-cor-superficie-elevada);
     color: var(--ds-cor-texto-suave);
     transition:
       background-color 0.16s ease,
@@ -46,6 +46,7 @@
     &:hover {
       border-color: var(--ds-cor-primaria);
       color: var(--ds-cor-texto);
+      background: var(--ds-cor-superficie);
     }
 
     &:focus-visible {
@@ -54,9 +55,10 @@
     }
 
     &--ativo {
-      border-color: var(--ds-cor-primaria);
+      border-color: transparent;
       background: var(--ds-cor-primaria);
       color: var(--ds-cor-primaria-texto);
+      box-shadow: var(--ds-sombra-baixa);
     }
   }
 

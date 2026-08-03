@@ -1,0 +1,84 @@
+.ds-kpi {
+  display: grid;
+  gap: var(--ds-espaco-1);
+  padding: var(--ds-espaco-4);
+  background: var(--ds-cor-superficie-elevada);
+  border: 1px solid var(--ds-cor-borda);
+  border-radius: var(--ds-raio-medio);
+}
+
+.ds-kpi__rotulo {
+  color: var(--ds-cor-texto-suave);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.ds-kpi__valor {
+  color: var(--ds-cor-texto);
+  font-family: var(--ds-fonte-titulo);
+  font-size: 2.15rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.ds-progresso {
+  display: grid;
+  gap: var(--ds-espaco-2);
+}
+
+.ds-progresso__barra {
+  height: 10px;
+  overflow: hidden;
+  background: var(--ds-cor-fundo);
+  border-radius: 999px;
+}
+
+.ds-progresso__valor {
+  display: block;
+  width: var(--ds-progresso-valor, 0%);
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--ds-cor-primaria),
+    var(--ds-cor-info)
+  );
+  border-radius: inherit;
+}
+
+.ds-lista {
+  display: grid;
+  gap: var(--ds-espaco-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-lista__item {
+  align-items: center;
+  display: flex;
+  gap: var(--ds-espaco-3);
+  padding: var(--ds-espaco-3);
+  border: 1px solid var(--ds-cor-borda);
+  border-radius: var(--ds-raio-pequeno);
+}
+
+.ds-lista__marcador {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--ds-cor-primaria);
+}
+
+.ds-lista__marcador--sucesso {
+  background: var(--ds-cor-sucesso);
+}
+
+.ds-lista__marcador--alerta {
+  background: var(--ds-cor-alerta);
+}
+
+.ds-lista__marcador--info {
+  background: var(--ds-cor-info);
+}

@@ -8,6 +8,8 @@
     ></button>
   }
   <app-sidebar
+    class="shell__sidebar"
+    [class.shell__sidebar--visivel]="sidebarAberta()"
     [aberta]="sidebarAberta()"
     (navegar)="fecharSidebar()"
   />

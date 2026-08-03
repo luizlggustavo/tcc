@@ -22,4 +22,11 @@ describe('HeaderComponent', () => {
     expect(header?.getAttribute('role')).toBe('banner');
     expect(botao?.getAttribute('aria-label')).toBe('Abrir menu de navegação');
   });
+
+  it('deve exibir o subtítulo da marca no cabeçalho', () => {
+    fixture.detectChanges();
+
+    const texto = fixture.nativeElement.textContent;
+    expect(texto).toContain('Transforme estudos em conquistas');
+  });
 });
