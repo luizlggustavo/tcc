@@ -1,0 +1,40 @@
+.ds-shell {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  min-height: 100vh;
+  background: var(--ds-cor-fundo);
+}
+
+.ds-shell__conteudo {
+  min-width: 0;
+}
+
+.ds-container {
+  width: min(100% - 32px, var(--ds-largura-container));
+  margin-inline: auto;
+}
+
+.ds-painel {
+  padding: var(--ds-espaco-6);
+  background: var(--ds-cor-superficie);
+  border: 1px solid var(--ds-cor-borda);
+  border-radius: var(--ds-raio-medio);
+  box-shadow: var(--ds-sombra-baixa);
+}
+
+.ds-acoes {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-espaco-3);
+}
+
+@media (max-width: 767px) {
+  .ds-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .ds-painel {
+    padding: var(--ds-espaco-4);
+  }
+}

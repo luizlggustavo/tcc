@@ -1,0 +1,40 @@
+.ds-card {
+  background: var(--ds-cor-superficie-elevada);
+  border: 1px solid var(--ds-cor-borda);
+  border-radius: var(--ds-raio-medio);
+  box-shadow: none;
+  color: var(--ds-cor-texto);
+}
+
+.ds-card--interativo {
+  cursor: pointer;
+  padding: var(--ds-espaco-5);
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.16s ease;
+}
+
+.ds-card--interativo:hover {
+  border-color: var(--ds-cor-primaria);
+  box-shadow: var(--ds-sombra-baixa);
+  transform: translateY(-2px);
+}
+
+.ds-card--destaque {
+  border-color: transparent;
+  box-shadow: var(--ds-sombra-media);
+}
+
+.ds-card__titulo {
+  margin: 0;
+  color: var(--ds-cor-texto);
+  font-family: var(--ds-fonte-titulo);
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.ds-card__corpo {
+  padding: var(--ds-espaco-5);
+}

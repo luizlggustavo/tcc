@@ -1,0 +1,24 @@
+.ds-grade {
+  display: grid;
+  gap: var(--ds-espaco-4);
+}
+
+.ds-grade--indicadores {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ds-grade--duas-colunas {
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+}
+
+.ds-stack {
+  display: grid;
+  gap: var(--ds-stack-espaco, var(--ds-espaco-4));
+}
+
+@media (max-width: 900px) {
+  .ds-grade--indicadores,
+  .ds-grade--duas-colunas {
+    grid-template-columns: 1fr;
+  }
+}

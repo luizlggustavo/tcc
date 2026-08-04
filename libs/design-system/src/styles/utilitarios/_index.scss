@@ -1,0 +1,59 @@
+.ds-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ds-flex {
+  display: flex;
+}
+
+.ds-grid {
+  display: grid;
+}
+
+.ds-alinhar-centro {
+  align-items: center;
+}
+
+.ds-justificar-entre {
+  justify-content: space-between;
+}
+
+.ds-gap-2 {
+  gap: var(--ds-espaco-2);
+}
+
+.ds-gap-3 {
+  gap: var(--ds-espaco-3);
+}
+
+.ds-gap-4 {
+  gap: var(--ds-espaco-4);
+}
+
+.ds-mt-2 {
+  margin-top: var(--ds-espaco-2);
+}
+
+.ds-mt-4 {
+  margin-top: var(--ds-espaco-4);
+}
+
+.ds-mt-6 {
+  margin-top: var(--ds-espaco-6);
+}
+
+.ds-texto-suave {
+  color: var(--ds-cor-texto-suave);
+}
+
+.ds-texto-centro {
+  text-align: center;
+}

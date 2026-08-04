@@ -1,0 +1,69 @@
+:root {
+  color-scheme: light;
+  --ds-fonte-texto: 'Plus Jakarta Sans', 'Trebuchet MS', sans-serif;
+  --ds-fonte-titulo: 'Sora', 'Trebuchet MS', sans-serif;
+  --ds-cor-fundo: #f7f8fc;
+  --ds-cor-superficie: #ffffff;
+  --ds-cor-superficie-elevada: #fbfcff;
+  --ds-cor-texto: #111827;
+  --ds-cor-texto-suave: #647084;
+  --ds-cor-borda: #dbe3f0;
+  --ds-cor-primaria: #2854f5;
+  --ds-cor-primaria-forte: #183fc4;
+  --ds-cor-primaria-texto: #ffffff;
+  --ds-cor-sucesso: #079669;
+  --ds-cor-sucesso-fundo: #ddf8ec;
+  --ds-cor-alerta: #f06445;
+  --ds-cor-alerta-fundo: #ffe9e2;
+  --ds-cor-info: #0ea5b7;
+  --ds-cor-info-fundo: #def8fb;
+  --ds-cor-perigo: #dc2626;
+  --ds-cor-perigo-fundo: #fee2e2;
+  --ds-cor-lima: #c7df35;
+  --ds-cor-foco: rgb(40 84 245 / 18%);
+  --ds-cor-overlay: rgb(15 23 42 / 42%);
+  --ds-raio-pequeno: 6px;
+  --ds-raio-medio: 8px;
+  --ds-sombra-baixa: 0 14px 30px rgb(15 23 42 / 8%);
+  --ds-sombra-media: 0 24px 54px rgb(15 23 42 / 13%);
+  --ds-espaco-1: 4px;
+  --ds-espaco-2: 8px;
+  --ds-espaco-3: 12px;
+  --ds-espaco-4: 16px;
+  --ds-espaco-5: 20px;
+  --ds-espaco-6: 24px;
+  --ds-espaco-8: 32px;
+  --ds-espaco-10: 40px;
+  --ds-largura-container: 1180px;
+  --ds-z-dropdown: 100;
+  --ds-z-overlay: 150;
+  --ds-z-sidebar: 200;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ds-cor-fundo: #111318;
+    --ds-cor-superficie: #181b22;
+    --ds-cor-superficie-elevada: #20242d;
+    --ds-cor-texto: #f8fafc;
+    --ds-cor-texto-suave: #a7b0c0;
+    --ds-cor-borda: #323948;
+    --ds-cor-primaria: #7c9bff;
+    --ds-cor-primaria-forte: #a4b8ff;
+    --ds-cor-primaria-texto: #101318;
+    --ds-cor-sucesso: #54d8a4;
+    --ds-cor-sucesso-fundo: rgb(84 216 164 / 16%);
+    --ds-cor-alerta: #ff8a6b;
+    --ds-cor-alerta-fundo: rgb(255 138 107 / 17%);
+    --ds-cor-info: #5dd4e7;
+    --ds-cor-info-fundo: rgb(93 212 231 / 16%);
+    --ds-cor-perigo: #fb7185;
+    --ds-cor-perigo-fundo: rgb(251 113 133 / 18%);
+    --ds-cor-lima: #d6ea4f;
+    --ds-cor-foco: rgb(124 155 255 / 28%);
+    --ds-cor-overlay: rgb(0 0 0 / 58%);
+    --ds-sombra-baixa: 0 14px 30px rgb(0 0 0 / 18%);
+    --ds-sombra-media: 0 24px 54px rgb(0 0 0 / 28%);
+  }
+}

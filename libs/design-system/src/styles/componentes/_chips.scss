@@ -1,0 +1,25 @@
+.ds-chip {
+  align-items: center;
+  display: inline-flex;
+  min-height: 26px;
+  padding: 0 var(--ds-espaco-3);
+  border: 1px solid var(--ds-cor-borda);
+  border-radius: 999px;
+  background: var(--ds-cor-superficie-elevada);
+  color: var(--ds-cor-texto);
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.ds-chip--sucesso {
+  background: var(--ds-cor-sucesso-fundo);
+  border-color: transparent;
+  color: var(--ds-cor-sucesso);
+}
+
+.ds-chip--info {
+  background: var(--ds-cor-info-fundo);
+  border-color: transparent;
+  color: var(--ds-cor-info);
+}

@@ -1,0 +1,44 @@
+.ds-alerta {
+  padding: var(--ds-espaco-3) var(--ds-espaco-4);
+  border: 1px solid var(--ds-cor-borda);
+  border-radius: var(--ds-raio-medio);
+  background: var(--ds-cor-superficie-elevada);
+  color: var(--ds-cor-texto);
+  font-weight: 700;
+}
+
+.ds-alerta--sucesso {
+  background: var(--ds-cor-sucesso-fundo);
+  border-color: transparent;
+  color: var(--ds-cor-sucesso);
+}
+
+.ds-alerta--erro {
+  background: var(--ds-cor-perigo-fundo);
+  border-color: transparent;
+  color: var(--ds-cor-perigo);
+}
+
+.ds-skeleton {
+  min-height: 1rem;
+  overflow: hidden;
+  border-radius: var(--ds-raio-pequeno);
+  background: linear-gradient(
+    90deg,
+    var(--ds-cor-superficie-elevada),
+    var(--ds-cor-borda),
+    var(--ds-cor-superficie-elevada)
+  );
+  background-size: 220% 100%;
+  animation: ds-skeleton-carregando 1.4s ease-in-out infinite;
+}
+
+@keyframes ds-skeleton-carregando {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}
